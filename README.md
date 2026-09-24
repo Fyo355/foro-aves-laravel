@@ -60,4 +60,4 @@ Proyecto desarrollado como práctica personal para reforzar conceptos de Laravel
 
 ---
 
-📌 *Proyecto en desarrollo activo.*
+*Proyecto en desarrollo activo.*
