@@ -56,7 +56,7 @@ php artisan test
 
 ## Motivación
 
-Proyecto desarrollado como práctica personal para reforzar conceptos de Laravel (migraciones, relaciones Eloquent, autorización basada en roles, testing) de cara a un proceso de selección para un puesto de desarrollo backend/fullstack junior.
+Proyecto desarrollado como práctica personal para reforzar conceptos de Laravel (migraciones, relaciones Eloquent, autorización basada en roles, testing).
 
 ---
 
