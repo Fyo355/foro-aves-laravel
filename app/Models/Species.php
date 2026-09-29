@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 
+#[Fillable(['name'])]
 class Species extends Model
 {
-        protected $fillable = ['name'];
-        public function posts()
-        {
-            return $this->hasMany(Post::class);
-        }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
