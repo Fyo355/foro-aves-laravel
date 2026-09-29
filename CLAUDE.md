@@ -31,7 +31,7 @@ Objetivo: aprender haciendo. Sigue el estilo de aprendizaje de mi CLAUDE.md glob
 
 ## Roadmap
 1. [x] Modelado de datos, migraciones de species/posts/comments y modelos con relaciones
-2. [ ] **Migración `add_role_and_profile_photo_to_users_table`: existe pero está VACÍA** (la escribe Fabrizio)
+2. [x] Migración de `role` y `profile_photo`, `User::isAdmin()`, estado `admin()` en UserFactory y seeder inicial
 3. [ ] Autenticación: Breeze con React (`composer require laravel/breeze --dev`, `php artisan breeze:install react`, `npm install`, `npm run dev`)
 4. [ ] Roles y permisos (user/admin)
 5. [ ] CRUD de posts con autorización (solo el autor edita y borra)
