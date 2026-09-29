@@ -33,8 +33,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@example.com',
         ]);
 
-        foreach (['canario', 'pinzon azul', 'capirote', 'hubara'] as $speciesName) {
-            Species::factory()->create(['name' => $speciesName]);
+        foreach (['Canario', 'Pinzon azul', 'Capirote', 'Hubara'] as $speciesName) {
+            Species::create(['name' => $speciesName]);
         }
 
     }
