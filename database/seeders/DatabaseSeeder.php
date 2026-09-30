@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
 use App\Models\Species;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,26 +17,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $users = collect([
+            User::factory()->create([
+                'name' => 'Test User',
+                'email' => 'test@example.com',
+            ]),
+            User::factory()->create([
+                'name' => 'John Doe',
+                'email' => 'john@example.com',
+            ]),
+            User::factory()->admin()->create([
+                'name' => 'Admin User',
+                'email' => 'admin@example.com',
+            ]),
         ]);
 
-        User::factory()->create([
-            'name' => 'John Doe',
-            'email' => 'john@example.com',
-        ]);
+        $species = collect(['Canario', 'Pinzon azul', 'Capirote', 'Hubara'])
+            ->map(fn (string $speciesName) => Species::create(['name' => $speciesName]));
 
-        User::factory()->admin()->create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
-        ]);
+        Post::factory(20)
+            ->recycle($users)
+            ->recycle($species)
+            ->create();
 
-        foreach (['Canario', 'Pinzon azul', 'Capirote', 'Hubara'] as $speciesName) {
-            Species::create(['name' => $speciesName]);
-        }
-
+        Post::factory()
+            ->recycle($species)
+            ->create(['user_id' => null]);
     }
 }
