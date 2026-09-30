@@ -36,6 +36,10 @@ Objetivo: aprender haciendo. Sigue el estilo de aprendizaje de mi CLAUDE.md glob
 3. [x] Autenticación: Breeze con React (`composer require laravel/breeze --dev`, `php artisan breeze:install react`, `npm install`, `npm run dev`)
 4. [ ] Roles y permisos (user/admin)
 5. [ ] CRUD de posts con autorización (solo el autor edita y borra)
+   - [x] Listado: `PostController@index` con eager loading y solo `id,name` del autor y la especie, `Pages/Posts/Index.jsx` (con "Usuario eliminado" y "Sin especie") y `PostIndexTest` (lista blanca sin `etc()` para no exponer datos del autor)
+   - [ ] Siguiente: `create`/`store` con `useForm` y validación. Pendiente de hablar: quitar `user_id` del `#[Fillable]` de `Post` y crear con `$request->user()->posts()->create(...)` (contraste con el `update` de Vogel)
+   - [ ] Después: `PostPolicy` (autor o admin con `before()`), `edit`/`update`/`destroy` y sus tests
+   - Las rutas se exponen con `Route::resource(...)->only([...])` a medida que se implementa cada método
 6. [ ] Comentarios (solo usuarios autenticados)
 7. [ ] Panel de administrador: CRUD de usuarios y moderación
 8. [ ] Perfil editable con foto (subida de archivos)
