@@ -8,8 +8,9 @@ Objetivo: aprender haciendo. Sigue el estilo de aprendizaje de mi CLAUDE.md glob
 ## Stack
 - Laravel 13, PHP 8.4 (Herd). Se sirve en http://flesip-practice.test
 - Base de datos: **SQLite** (`database/database.sqlite`, `DB_CONNECTION=sqlite` en `.env`). No hay servidor MySQL.
-- Frontend previsto: React con Laravel Breeze + Inertia.js (aún sin instalar).
-- Tests: Pest, escritos a medida que se construye cada bloque (aún sin instalar; ahora mismo solo está PHPUnit).
+- Frontend: React 18 (JSX, sin TypeScript) con Laravel Breeze + Inertia 2, Tailwind 3 con PostCSS y Vite 8.
+- Tests: Pest, escritos a medida que se construye cada bloque.
+- Breeze trae plantillas anteriores a Laravel 13. Al instalarlo hubo que subir `@vitejs/plugin-react` a ^6 (la v4 no admite Vite 8) y quitar `import './bootstrap'` de `app.jsx` (el skeleton ya no trae ese archivo). Si se reinstala Breeze, hay que repetir los dos arreglos.
 - El modelo `User` usa atributos PHP de Laravel 13 (`#[Fillable]`, `#[Hidden]`) en lugar de `$fillable` y `$hidden`.
 
 ## Entorno Windows
@@ -32,7 +33,7 @@ Objetivo: aprender haciendo. Sigue el estilo de aprendizaje de mi CLAUDE.md glob
 ## Roadmap
 1. [x] Modelado de datos, migraciones de species/posts/comments y modelos con relaciones
 2. [x] Migración de `role` y `profile_photo`, `User::isAdmin()`, estado `admin()` en UserFactory y seeder inicial
-3. [ ] Autenticación: Breeze con React (`composer require laravel/breeze --dev`, `php artisan breeze:install react`, `npm install`, `npm run dev`)
+3. [x] Autenticación: Breeze con React (`composer require laravel/breeze --dev`, `php artisan breeze:install react`, `npm install`, `npm run dev`)
 4. [ ] Roles y permisos (user/admin)
 5. [ ] CRUD de posts con autorización (solo el autor edita y borra)
 6. [ ] Comentarios (solo usuarios autenticados)
@@ -46,6 +47,8 @@ Actualiza este roadmap al terminar cada bloque.
 - Prioridad: un flujo completo con React (ruta → controlador → página Inertia/React que lista y crea posts). Es el mayor hueco para un puesto Fullstack.
 - Roadmap recortado: autenticación, CRUD de posts con Policy y un par de tests. La foto de perfil y el panel de admin completo quedan para después.
 - Hacer un ensayo cronometrado (~2 h) con un repo Laravel + React desconocido, explicando las decisiones en voz alta.
+- Starter kits: Breeze 2.x admite Laravel 13 y sirve para aprender Inertia en este foro. Pero la documentación de Laravel 13 ya solo menciona los starter kits oficiales (`laravel new app --react`: Inertia + TypeScript + shadcn/ui), que solo se instalan al crear el proyecto. El ensayo del miércoles se hace con `laravel new ensayo --react` dentro de `~/Herd`.
+- Herd: este proyecto está en el Escritorio, no en `~/Herd`, así que para servirlo en http://flesip-practice.test hace falta `herd link` desde su carpeta (con la app de Herd abierta).
 
 ## Puntos débiles a vigilar al revisar su código
 - Copiar código sin revisarlo: imports que sobran o que faltan (un `#[Fillable]` sin su `use` falla sin avisar).
